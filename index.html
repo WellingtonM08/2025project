@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Willcutz Barber Portfolio</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Arial,sans-serif;background:#f3f4f6;color:#111827;font-size:18px}
+    .layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+
+    .sidebar{background:#111827;color:#e5e7eb;padding:24px 16px;display:flex;flex-direction:column;gap:20px}
+    .sidebar-title{text-align:center;font-weight:bold;letter-spacing:.08em}
+    .nav{display:flex;flex-direction:column;gap:8px}
+    .nav button{background:none;border:none;color:#e5e7eb;text-align:left;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:16px;width:100%}
+    .nav button.active{background:rgba(37,99,235,.25);color:#dbeafe}
+    .sidebar-footer{margin-top:auto;font-size:14px;color:#9ca3af}
+
+    .main{padding:26px 20px;display:flex;flex-direction:column;gap:22px}
+    .section{display:none}
+    .section.active{display:block}
+    .section-title{font-size:24px;font-weight:bold;margin-bottom:6px}
+    .section-subtitle{font-size:16px;color:#6b7280;margin-bottom:14px}
+    .card{background:#fff;border-radius:14px;padding:18px 18px 20px;border:1px solid:#e5e7eb}
+
+    .home-hero{display:flex;flex-direction:column;gap:18px}
+    .home-video{width:100%;height:auto;max-height:320px;border-radius:12px;object-fit:contain;background:#000}
+    .home-title{font-size:24px;font-weight:bold;color:#2563eb;margin-bottom:4px}
+    .home-text{font-size:16px;color:#4b5563;line-height:1.6;margin-bottom:4px}
+    .home-photos img{width:100%;border-radius:12px;display:block}
+
+    .portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .portfolio-grid img{width:100%;height:150px;object-fit:cover;border-radius:12px}
+    .portfolio-caption{font-size:14px;color:#6b7280;margin-top:4px}
+
+    .services-list{display:flex;flex-direction:column;gap:14px}
+    .service-item{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center}
+    .service-item img{width:100%;height:110px;object-fit:cover;border-radius:12px}
+    .service-title-row{display:flex;justify-content:space-between;margin-bottom:4px;font-size:16px;font-weight:bold}
+    .service-price{color:#2563eb}
+    .service-text{font-size:15px;color:#4b5563;line-height:1.5}
+
+    .about-text{font-size:15px;color:#4b5563;line-height:1.6;margin-bottom:8px}
+
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .social-list{display:flex;flex-direction:column;gap:8px}
+    .social-link{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:10px;border:1px solid:#e5e7eb;background:#f9fafb;font-size:15px;text-decoration:none;color:#111827}
+    .contact-form label{display:block;font-size:14px;margin:6px 0 2px}
+    .contact-form input,.contact-form textarea{width:100%;padding:8px;border-radius:10px;border:1px solid:#e5e7eb;font-size:15px;margin-bottom:6px}
+    .contact-form textarea{min-height:80px;resize:vertical}
+    .btn{border:none;border-radius:999px;padding:8px 16px;background:#2563eb;color:#fff;font-size:15px;cursor:pointer}
+
+    @media(max-width:800px){
+      .layout{grid-template-columns:1fr}
+      .sidebar{flex-direction:row;align-items:center;justify-content:space-between}
+      .nav{flex-direction:row;flex-wrap:wrap;gap:4px}
+      .nav button{width:auto;font-size:14px}
+      .main{padding:18px 12px}
+      .service-item{grid-template-columns:1fr}
+      .contact-layout{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:500px){.portfolio-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">WILLCUTZ</div>
+      <nav class="nav">
+        <button class="active" onclick="showSection('home',event)">Home</button>
+        <button onclick="showSection('portfolio',event)">Portfolio</button>
+        <button onclick="showSection('services',event)">Services</button>
+        <button onclick="showSection('about',event)">About</button>
+        <button onclick="showSection('contact',event)">Contact</button>
+      </nav>
+      <div class="sidebar-footer">Barber • Student • Philly </div>
+    </aside>
+
+    <main class="main">
+
+      <section id="home" class="section active">
+        <h2 class="section-title">Home</h2>
+        <p class="section-subtitle">Welcome to the Willcutz barber page</p>
+        <div class="card">
+          <div class="home-hero">
+            <video class="home-video" controls>
+              <source src="055b3098587e469fad3e2c780cc21000.MOV" type="video/quicktime">
+            </video>
+            <div>
+              <h3 class="home-title">Willcutz</h3>
+              <p class="home-text">Giving clients their confidence back with haircuts that match their own style.</p>
+              <p class="home-text">This site shows my work, services, and how to book or ask questions.</p>
+            </div>
+            <div class="home-photos">
+              <img src="797DB997-73CD-42B4-B507-0AE0D016711F.jpg" alt="Cutting hair on campus">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Some of my recent cuts</p>
+        <div class="card">
+          <div class="portfolio-grid">
+            <div>
+              <img src="7D5A86B9-816F-486E-A0CC-B685C6D1C276.jpg" alt="Design 1">
+              <div class="portfolio-caption">Custom design fade</div>
+            </div>
+            <div>
+              <img src="8B63CE6D-FF3A-4AF8-8DF6-687E001AD77F.jpg" alt="Fade 2">
+              <div class="portfolio-caption">Clean low fade</div>
+            </div>
+            <div>
+              <img src="17F0326A-8D4D-47A8-86E2-AC150FCC32D7.jpg" alt="Fade 3">
+              <div class="portfolio-caption">Sharp mid fade</div>
+            </div>
+            <div>
+              <img src="D6DE23F0-600C-4279-8E70-916B58B4B93A.jpg" alt="Fade 4">
+              <div class="portfolio-caption">Curly high fade</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">Simple menu of what I offer</p>
+        <div class="card">
+          <div class="services-list">
+            <div class="service-item">
+              <img src="https://images.unsplash.com/photo-1598524378492-9c9fe4a50241?w=400" alt="Fade">
+              <div>
+                <div class="service-title-row">
+                  <div>Any Fade & Taper</div><div class="service-price">$25</div>
+                </div>
+                <p class="service-text">Low, mid or high fade or taper with line up.</p>
+                <p class="service-text">Can be a gentleman’s cut, finished with razor.</p>
+                <p class="service-text">Beard not included.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <img src="https://images.unsplash.com/photo-1621609871082-5b88efde4f9d?w=400" alt="Beard">
+              <div>
+                <div class="service-title-row">
+                  <div>Beard Trim & Shape</div><div class="service-price">$15</div>
+                </div>
+                <p class="service-text">Beard cleaned, shaped and lined.</p>
+                <p class="service-text">No haircut with this one.</p>
+              </div>
+            </div>
+            <div class="service-item">
+              <img src="https://images.unsplash.com/photo-1576511457956-f6c07b8843a3?w=400" alt="Combo">
+              <div>
+                <div class="service-title-row">
+                  <div>Cut + Beard Combo</div><div class="service-price">$35</div>
+                </div>
+                <p class="service-text">Full fade and beard combo with razor finish.</p>
+                <p class="service-text">Giving your confidence back to take on any challange!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">Quick summary of being a barber in college</p>
+        <div class="card">
+          <p class="about-text">I found this passion of mine during the dark times of the pandemic.</p>
+          <p class="about-text">Through a haircut I was able not only give a person their confidence and smile back, but I was able to understand them as a person.</p>
+          <p class="about-text">It just wasn’t a haircut, it was confidence. Mixed with my passion of art I kept doing this to this day.</p>
+          <p class="about-text">Since a child, art has always been my escape, whether it was middle school in art club making murals, or 8th grade taking piano classes.</p>
+          <p class="about-text">Or if it was high school, where I would draw portraits of people, even the doodle drawings in class while the professor was giving a lecture.</p>
+          <p class="about-text">Art has always been an escape, the only thing that has changed is the method in which I have done it, it’s now done through haircuts.</p>
+          <p class="about-text">Balancing school and clients taught me time management, consistency, and attention to detail. Every appointment is a chance to get better at my craft.</p>
+          <p class="about-text">Through this journey I have met amazing people of all aspects of life, from the family men laborer to the business men with a startup.</p>
+          <p class="about-text">I got to understand not just what type of haircut they wanted but how they view life and what keeps them going.</p>
+          <p class="about-text">It’s safe to say I love what I do because I do it to the best of my abilities, with care, great skill, and professionalism.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Tap a link or send a message</p>
+        <div class="card">
+          <div class="contact-layout">
+            <div>
+              <h3 style="font-size:18px;margin-bottom:8px">Links</h3>
+              <div class="social-list">
+                <a class="social-link" href="https://instagram.com/will.cutz_" target="_blank">
+                  <span>Instagram @will.cutz_</span><span>Open</span>
+                </a>
+                <a class="social-link" href="https://www.tiktok.com/@will.cutz" target="_blank">
+                  <span>TikTok @will.cutz</span><span>Open</span>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-size:18px;margin-bottom:8px">Ask a question</h3>
+              <form class="contact-form" action="https://formspree.io/f/xnneboyz" method="POST">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required>
+                <label for="message">Question / Comment</label>
+                <textarea id="message" name="message" required></textarea>
+                <button class="btn" type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function showSection(id,e){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+      if(e)e.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
